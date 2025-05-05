@@ -1,0 +1,7 @@
+/* Import de la police Inter via Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+
+/* Définir la police globalement */
+body {
+  font-family: "Inter", sans-serif;
+}
