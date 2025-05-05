@@ -25,6 +25,47 @@ Next-Strapi/
 git clone https://github.com/syalicheff/Next-Strapi.git
 cd Next-Strapi
 ```
+### 1.1 Créer les .env 
+./frontend/.env
+
+```bash
+cd ./frontend/
+touch .env
+mettre ce contenu dedans :
+
+NEXTAUTH_SECRET=supersecretkey123456
+NEXTAUTH_URL=http://localhost:3000
+
+STRAPI_URL=http://127.0.0.1:1337
+STRAPI_BEARER_TOKEN= YOUR TOKEN
+```
+./backend/.env
+```bash
+cd ./backend/
+touch .env
+mettre ce contenu dedans :
+
+# Server
+HOST=0.0.0.0
+PORT=1337
+
+# Secrets
+APP_KEYS=6vQ1BeWf47vIR4MTFOcDLQ==,fmcqs33GfFGTedkBH4r0qA==,nbkC3Pg3m0eBWK8l1IDQqg==,be12tb/ncr3fCjF11fSAZA==
+API_TOKEN_SALT=phvV1b4LSVGaaO8gpWdgbw==
+ADMIN_JWT_SECRET=lMWH5mgSXiHgJgh8L/5MlA==
+TRANSFER_TOKEN_SALT=gDtCay3Dg/Jk8gAY+OAN2g==
+
+# Database
+DATABASE_CLIENT=sqlite
+DATABASE_HOST=
+DATABASE_PORT=
+DATABASE_NAME=
+DATABASE_USERNAME=
+DATABASE_PASSWORD=
+DATABASE_SSL=false
+DATABASE_FILENAME=.tmp/data.db
+JWT_SECRET=lrJ72Lg4Cl/MTxn5nze2ew==
+```
 
 ### 2. Lancer le backend (Strapi)
 
