@@ -9,6 +9,9 @@ export async function middleware(request: NextRequest) {
   });
 
   const publicPaths = ["/login", "/register", "/api", "/_next", "/favicon.ico"];
+  const authPaths = ["/register", "/login"];
+  
+  const isAuthPath = authPaths.includes(request.nextUrl.pathname);
 
   const isPublic = publicPaths.some((path) =>
     request.nextUrl.pathname.startsWith(path)
@@ -16,6 +19,10 @@ export async function middleware(request: NextRequest) {
 
   if (!token && !isPublic) {
     return NextResponse.redirect(new URL("/login", request.url));
+  }
+
+  if (token && isAuthPath) {
+    return NextResponse.redirect(new URL("/", request.url));
   }
 
   return NextResponse.next();

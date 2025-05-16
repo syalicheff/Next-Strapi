@@ -5,26 +5,25 @@ import {
   Group,
   Image,
   Stack,
-  Title,
   UnstyledButton,
   rem,
+  Text,
 } from "@mantine/core";
 import Link from "next/link";
+import { HeaderLink } from "./Header";
 
 type Props = {
   opened: boolean;
   onClose: () => void;
-  links: { link: string; label: string }[];
-  active: string;
-  setActive: (value: string) => void;
+  links: HeaderLink[];
+ 
 };
 
 export default function HeaderMobile({
   opened,
   onClose,
   links,
-  active,
-  setActive,
+ 
 }: Props) {
   return (
     <Drawer
@@ -33,17 +32,18 @@ export default function HeaderMobile({
       padding="md"
       size="75%"
       title={
-        <Group>
+        <Group align="center" gap="xs">
           <Image
             src="/vercel.svg"
             alt="Vercel"
-            height={30}
-            width={90}
+            maw={80} // largeur max
+            h="auto" // garde le ratio
+            fit="contain" // ne crop pas
             style={{ filter: "brightness(0)" }}
           />
-          <Title order={4} fw={700} c="black">
+          <Text fw={700} size="lg" c="black">
             Strapi Next
-          </Title>
+          </Text>
         </Group>
       }
       hiddenFrom="xs"
@@ -54,20 +54,15 @@ export default function HeaderMobile({
           <UnstyledButton
             key={link.label}
             component={Link}
-            href={link.link}
-            onClick={() => {
-              setActive(link.link);
-              onClose();
-            }}
+            href={link.href}
+             
             px="md"
             py="xs"
-            bg={active === link.link ? "gray.1" : "transparent"}
-            style={{
+             style={{
               borderRadius: 8,
               fontWeight: 600,
               fontSize: rem(18),
-              color: active === link.link ? "#1c7ed6" : "black",
-            }}
+             }}
           >
             {link.label}
           </UnstyledButton>

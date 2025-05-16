@@ -1,7 +1,12 @@
-/**
- * article router
- */
+import { factories } from "@strapi/strapi";
 
-import { factories } from '@strapi/strapi';
-
-export default factories.createCoreRouter('api::article.article');
+export default factories.createCoreRouter("api::article.article", {
+  config: {
+    update: {
+      policies: ["api::article.is-owner-or-admin"],
+    },
+    delete: {
+      policies: ["api::article.is-owner-or-admin"],
+    },
+  },
+});

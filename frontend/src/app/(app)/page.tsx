@@ -1,22 +1,17 @@
+
 "use client";
 
-import {
-  Container,
-  Stack,
-  Group,
-  Button,
-  Text,
-  Code,
-  Anchor,
-  Image as MantineImage,
-} from "@mantine/core";
-import Image from "next/image";
 
-import { useSession } from "next-auth/react";
+import { HeroSection } from "@/components/home/HeroSection";
 
-export default function Home() {
-  const { data: session } = useSession();
-  const user = session?.user;
-  console.log("User session:", user);
-  return <Container size="lg" py="xl"></Container>;
+export default function page() {
+  return (
+     <HeroSection
+        title="Bienvenue sur notre site"
+        description="Nous sommes une entreprise qui produit des produits de qualité"
+        rating={5}
+        ratingLabel="Notre équipe est composée de 10 personnes"
+     />
+
+  );
 }

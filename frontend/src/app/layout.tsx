@@ -1,5 +1,9 @@
 import "@/styles/globals.css";
 import "@mantine/core/styles.css";
+import "@mantine/tiptap/styles.css";
+import "@mantine/notifications/styles.css";
+
+import { Notifications } from "@mantine/notifications";
 
 import {
   ColorSchemeScript,
@@ -34,6 +38,8 @@ export default function RootLayout({
           defaultColorScheme="light"
           theme={{ fontFamily: "Inter, sans-serif" }}
         >
+          <Notifications />
+
           <NextAuthProvider>{children}</NextAuthProvider>
         </MantineProvider>
       </body>

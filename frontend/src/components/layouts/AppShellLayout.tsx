@@ -4,6 +4,7 @@ import {
   AppShell,
   Box,
   Burger,
+  Container,
   Group,
   Image,
   NavLink,
@@ -13,7 +14,7 @@ import { useDisclosure } from "@mantine/hooks";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
 import HeaderSimple from "@/components/shared/HeaderSimple";
-
+import HeaderTest from "@/components/shared/Header";
 const navLinks = [
   { label: "Accueil", href: "/" },
   { label: "Produits", href: "/products" },
@@ -25,29 +26,15 @@ export default function AppShellLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const [opened, { toggle }] = useDisclosure();
-
   return (
-    <AppShell
-      header={{ height: 60 }}
-      navbar={{
-        width: 250,
-        breakpoint: "sm",
-        collapsed: { mobile: !opened },
-      }}
-      padding="md"
-      withBorder={false}
-    >
+    <AppShell withBorder={false}>
       {/* HEADER */}
-      <AppShell.Header>
-        <HeaderSimple />
-      </AppShell.Header>
-
-      {/* NAVBAR */}
+ 
 
       {/* MAIN */}
       <AppShell.Main>
-        <Box>{children}</Box>
+        <HeaderTest mt={"xl"} mb={"xl"} />
+        <Container mt="xl" size="xl">{children}</Container>
       </AppShell.Main>
     </AppShell>
   );

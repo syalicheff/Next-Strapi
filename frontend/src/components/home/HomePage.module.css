@@ -1,0 +1,11 @@
+/* HomePage.module.css */
+.hero {
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+  }
+  
+  .highlight {
+    color: var(--mantine-color-violet-7);
+  }
+  
