@@ -3,6 +3,8 @@ import "@mantine/core/styles.css";
 import "@mantine/tiptap/styles.css";
 import "@mantine/notifications/styles.css";
 
+import ScrollTop from "@/components/shared/ScrollTop";
+
 import { Notifications } from "@mantine/notifications";
 
 import {
@@ -39,6 +41,7 @@ export default function RootLayout({
           theme={{ fontFamily: "Inter, sans-serif" }}
         >
           <Notifications />
+          <ScrollTop />
 
           <NextAuthProvider>{children}</NextAuthProvider>
         </MantineProvider>

@@ -10,7 +10,7 @@ export default async function BlogPage() {
   const session = await getServerSession(authOptions);
   const user = session?.user || null;
   const posts = (await getArticles("fr", user)) as Article[];
-
+  
   return (
     <Container size="xl"  >
       <Center mb={40}>
