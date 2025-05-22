@@ -13,6 +13,12 @@ export const authOptions = {
       async authorize(credentials) {
         try {
           // 1. Authentification via /auth/local
+          console.log(
+            "Authenticating with credentials:",
+            credentials?.identifier,
+            credentials?.password,
+            process.env.STRAPI_URL+"api/auth/local"
+          );
           const res = await axios.post(
             `${process.env.STRAPI_URL}/api/auth/local`,
             {
