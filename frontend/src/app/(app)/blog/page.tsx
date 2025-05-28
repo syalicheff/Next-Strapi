@@ -31,7 +31,7 @@ export default async function BlogPage() {
             radius="md"
             size="sm"
           >
-            Rédiger un article{" "}
+            Write an Article{" "}
             <Text ml="sm" size="xl">
               ✍️
             </Text>

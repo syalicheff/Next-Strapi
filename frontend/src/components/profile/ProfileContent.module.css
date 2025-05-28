@@ -1,0 +1,14 @@
+.container {
+  max-width: rem(800px);
+  margin: 0 auto;
+  margin-top: rem(40px);
+}
+
+.articleCard {
+  transition: transform 150ms ease, box-shadow 150ms ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--mantine-shadow-md);
+  }
+} 
