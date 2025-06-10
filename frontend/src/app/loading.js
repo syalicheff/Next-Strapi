@@ -1,4 +1,4 @@
-import GlobalLoader from "@/components/shared/GlobalLoader";
+import GlobalLoader from "@/components/shared/loaders/GlobalLoader";
 
 export default function Loading() {
   return <GlobalLoader />;

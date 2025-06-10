@@ -2,7 +2,7 @@
 
 import { PricingCard } from "./PricingCard";
 import { FeatureIcon } from "./FeatureIcon";
-import { JumboTitle } from "../shared/JumboTitle";
+import { JumboTitle } from "../shared/display/JumboTitle";
 import {
   Badge,
   Button,
@@ -28,17 +28,17 @@ import NextLink from "next/link";
 import { useState } from "react";
 
 export const PricingPage = () => {
-  const [showMonthlyPricing, setShowMonthlyPricing] = useState(false);
+  const [showMonthlyPricing, setShowMonthlyPricing] = useState(true);
 
   return (
     <Container fluid py="xl">
       <Container size="md">
         <Stack align="center" gap="xs">
           <JumboTitle order={2} fz="md" ta="center">
-            Support the Blog. Read More.
+            Soutenez le Blog. Lisez Plus.
           </JumboTitle>
           <Text c="dimmed" ta="center" fz="xl">
-            Get access to exclusive articles and support independent writing.
+            Accédez à des articles exclusifs et soutenez l'écriture indépendante.
           </Text>
           <Center>
             <SegmentedControl
@@ -46,9 +46,9 @@ export const PricingPage = () => {
               size="lg"
               maw={320}
               radius="xl"
-              data={["Monthly", "Annual (Save 20%)"]}
+              data={["Annuel (-20%)", "Mensuel"]}
               defaultValue={
-                showMonthlyPricing ? "Monthly" : "Annual (Save 20%)"
+                showMonthlyPricing ? "Mensuel" : "Annuel (Économisez 20%)"
               }
               onChange={() => setShowMonthlyPricing((prev) => !prev)}
             />
@@ -58,12 +58,12 @@ export const PricingPage = () => {
 
       <Group mt="xl" justify="center" gap="xl">
         <PricingCard
-          title="Basic Reader"
-          description="Perfect for casual readers"
-          price={showMonthlyPricing ? "$5" : "$4"}
-          strikethroughPrice="$5"
+          title="Lecteur Basique"
+          description="Parfait pour les lecteurs occasionnels"
+          price={showMonthlyPricing ? "4,99€" : "47,90€"}
+          strikethroughPrice={showMonthlyPricing ? "4,99€" : "59,88€"}
           showStrikethroughPrice={!showMonthlyPricing}
-          pricingPeriod="/month"
+          pricingPeriod={showMonthlyPricing ? "/mois" : "/an"}
           cta={
             <Button
               component={NextLink}
@@ -72,7 +72,7 @@ export const PricingPage = () => {
               variant="light"
               fullWidth
             >
-              Subscribe
+              S'abonner
             </Button>
           }
           icon={
@@ -82,8 +82,8 @@ export const PricingPage = () => {
           }
           items={[
             {
-              title: "Access Paid Articles",
-              description: "Read all premium blog posts",
+              title: "Accès aux Articles Premium",
+              description: "Lisez tous les articles premium du blog",
               icon: (
                 <FeatureIcon>
                   <IconBook2 size={21} />
@@ -91,8 +91,8 @@ export const PricingPage = () => {
               ),
             },
             {
-              title: "Support the Blog",
-              description: "Keep content free for others",
+              title: "Soutenez le Blog",
+              description: "Gardez le contenu gratuit pour tous",
               icon: (
                 <FeatureIcon>
                   <IconUserHeart size={21} />
@@ -100,8 +100,8 @@ export const PricingPage = () => {
               ),
             },
             {
-              title: "Support Independent Writing",
-              description: "Help us create more content",
+              title: "Soutenez l'Écriture Indépendante",
+              description: "Aidez-nous à créer plus de contenu",
               icon: (
                 <FeatureIcon>
                   <IconUsers size={21} />
@@ -113,17 +113,17 @@ export const PricingPage = () => {
         />
 
         <PricingCard
-          title="Pro Subscriber"
-          description="Support deeply and unlock extras"
+          title="Abonné Pro"
+          description="Soutenez activement et débloquez des extras"
           badge={
             <Badge variant="light" size="lg">
-              Most popular
+              Le plus populaire
             </Badge>
           }
-          price={showMonthlyPricing ? "$9" : "$7"}
-          strikethroughPrice="$9"
+          price={showMonthlyPricing ? "8,99€" : "86,30€"}
+          strikethroughPrice={showMonthlyPricing ? "8,99€" : "107,88€"}
           showStrikethroughPrice={!showMonthlyPricing}
-          pricingPeriod="/month"
+          pricingPeriod={showMonthlyPricing ? "/mois" : "/an"}
           cta={
             <Button
               component={NextLink}
@@ -131,7 +131,7 @@ export const PricingPage = () => {
               size="lg"
               fullWidth
             >
-              Subscribe
+              S'abonner
             </Button>
           }
           icon={
@@ -141,8 +141,8 @@ export const PricingPage = () => {
           }
           items={[
             {
-              title: "All Basic Features",
-              description: "Everything from the Basic tier",
+              title: "Toutes les Fonctionnalités Basiques",
+              description: "Tout ce qui est inclus dans l'offre Basique",
               icon: (
                 <FeatureIcon>
                   <IconFileText size={21} />
@@ -150,8 +150,8 @@ export const PricingPage = () => {
               ),
             },
             {
-              title: "Ad-Free Experience",
-              description: "Read without distractions",
+              title: "Expérience Sans Publicité",
+              description: "Lisez sans distractions",
               icon: (
                 <FeatureIcon>
                   <IconShieldLock size={21} />
@@ -159,8 +159,8 @@ export const PricingPage = () => {
               ),
             },
             {
-              title: "Early Access",
-              description: "Read new articles before others",
+              title: "Accès Anticipé",
+              description: "Lisez les nouveaux articles avant les autres",
               icon: (
                 <FeatureIcon>
                   <IconDeviceAnalytics size={21} />
@@ -172,17 +172,17 @@ export const PricingPage = () => {
         />
 
         <PricingCard
-          title="Partner Patron"
-          description="For true supporters of this blog"
+          title="Mécène Partenaire"
+          description="Pour les vrais supporters de ce blog"
           badge={
             <Badge variant="outline" size="lg">
-              Best value
+              Meilleur rapport qualité-prix
             </Badge>
           }
-          price={showMonthlyPricing ? "$15" : "$12"}
-          strikethroughPrice="$15"
+          price={showMonthlyPricing ? "14,99€" : "143,90€"}
+          strikethroughPrice={showMonthlyPricing ? "14,99€" : "179,88€"}
           showStrikethroughPrice={!showMonthlyPricing}
-          pricingPeriod="/month"
+          pricingPeriod={showMonthlyPricing ? "/mois" : "/an"}
           cta={
             <Button
               component={NextLink}
@@ -191,7 +191,7 @@ export const PricingPage = () => {
               variant="light"
               fullWidth
             >
-              Subscribe
+              S'abonner
             </Button>
           }
           icon={
@@ -201,8 +201,8 @@ export const PricingPage = () => {
           }
           items={[
             {
-              title: "All Pro Features",
-              description: "Everything from the Pro tier",
+              title: "Toutes les Fonctionnalités Pro",
+              description: "Tout ce qui est inclus dans l'offre Pro",
               icon: (
                 <FeatureIcon>
                   <IconBook2 size={21} />
@@ -210,8 +210,8 @@ export const PricingPage = () => {
               ),
             },
             {
-              title: "Premium Comment Access",
-              description: "Participate in private discussions",
+              title: "Accès Premium aux Commentaires",
+              description: "Participez aux discussions privées",
               icon: (
                 <FeatureIcon>
                   <IconUsers size={21} />
@@ -219,8 +219,8 @@ export const PricingPage = () => {
               ),
             },
             {
-              title: "Direct Feedback",
-              description: "Request articles or get insights",
+              title: "Retour Direct",
+              description: "Obtenez des insights ",
               icon: (
                 <FeatureIcon>
                   <IconFingerprint size={21} />

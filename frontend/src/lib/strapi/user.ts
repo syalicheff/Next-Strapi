@@ -4,6 +4,8 @@ import { strapiClient } from "./strapiClient";
 import { User } from "next-auth";
 import { Article } from "@/types/Article";
 
+export type { User, Article };
+
 type UserWithArticles = User & {
   articles: Article[];
 };

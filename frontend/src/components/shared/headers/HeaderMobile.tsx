@@ -42,7 +42,7 @@ export default function HeaderMobile({
             style={{ filter: "brightness(0)" }}
           />
           <Text fw={700} size="lg" c="black">
-            Strapi Next
+            Clutch Code
           </Text>
         </Group>
       }

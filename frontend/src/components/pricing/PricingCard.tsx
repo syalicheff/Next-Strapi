@@ -1,9 +1,7 @@
 "use client";
 
 import {
-  Badge,
   Box,
-  Button,
   Card,
   CardProps,
   Divider,
@@ -12,7 +10,7 @@ import {
   Stack,
   Text,
 } from "@mantine/core";
-import { JumboTitle } from "../shared/JumboTitle";
+import { JumboTitle } from "../shared/display/JumboTitle";
 import { motion } from "framer-motion";
 import { ReactNode } from "react";
 

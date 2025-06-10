@@ -5,6 +5,7 @@ import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { Article } from "@/types/Article";
 import ArticlesList from "@/components/authenticated/Blog/ArticlesList";
 import Link from "next/link";
+import { JumboTitle } from "@/components/shared/display/JumboTitle";
 
 export default async function BlogPage() {
   const session = await getServerSession(authOptions);
@@ -15,30 +16,17 @@ export default async function BlogPage() {
     <Container size="xl"  >
       <Center mb={40}>
         <Flex
-          direction="row"
-          justify="space-between"
+          direction="column"
+          justify="center"
           align="center"
-          gap={"xl"}
+          gap={"md"}
           w="100%"
         >
-          <Title order={1} size={60} ta="center" fw={800} c="black">
+          <JumboTitle order={2} fz="md" ta="center">
             Blog
-          </Title>
-          <Button
-            component={Link}
-            href="/blog/new"
-            color="violet"
-            radius="md"
-            size="sm"
-          >
-            Write an Article{" "}
-            <Text ml="sm" size="xl">
-              ✍️
-            </Text>
-          </Button>
+          </JumboTitle>
         </Flex>
       </Center>
-
       <ArticlesList articles={posts} user={user} />
     </Container>
   );

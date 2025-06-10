@@ -1,4 +1,4 @@
-import { JumboTitle } from "@/components/shared/JumboTitle";
+import { JumboTitle } from "@/components/shared/display/JumboTitle";
 
 import {
   ActionIcon,
@@ -112,7 +112,7 @@ export const HeroSection = ({
               px="md"
               my="lg"
               maw="100vw"
-              placeholder="Email address"
+              placeholder="Adresse email"
               size="xl"
               radius="xl"
               inputMode="email"

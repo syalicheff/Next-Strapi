@@ -13,7 +13,7 @@ import {
 import { useViewportSize } from "@mantine/hooks";
 
 import { Article } from "@/types/Article";
-import MarkdownRenderer from "@/components/shared/MarkdownRenderer";
+import MarkdownRenderer from "@/components/shared/display/MarkdownRenderer";
 
 type Props = {
   article: Article;

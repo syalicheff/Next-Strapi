@@ -30,9 +30,9 @@ export type HeaderLink = {
 };
 
 const HEADER_LINKS: HeaderLink[] = [
-  { label: 'Home', href: '/' },
+  { label: 'Accueil', href: '/' },
   { label: 'Blog', href: '/blog' },
-  { label: 'Pricing', href: '/pricing' },
+  { label: 'Tarifs', href: '/pricing' },
 ];
 
 type Props = ContainerProps & {
@@ -47,7 +47,7 @@ export default function HeaderTest({
   style,
   logo = (
     <Text fw="bold" fz={24} mx="xs" ta="center">
-      Strapi Next
+      Clutch Code
     </Text>
   ),
   callToActionTitle = 'Write blog post',

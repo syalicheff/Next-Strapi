@@ -2,24 +2,13 @@
 
 import {
   AppShell,
-  Box,
-  Burger,
   Container,
-  Group,
-  Image,
-  NavLink,
-  Text,
+ 
 } from "@mantine/core";
-import { useDisclosure } from "@mantine/hooks";
-import { useSession } from "next-auth/react";
-import Link from "next/link";
-import HeaderSimple from "@/components/shared/HeaderSimple";
-import HeaderTest from "@/components/shared/Header";
-const navLinks = [
-  { label: "Accueil", href: "/" },
-  { label: "Produits", href: "/products" },
-  { label: "Profil", href: "/profile" },
-];
+ 
+import HeaderTest from "@/components/shared/headers/Header";
+import Footer  from "../shared/footers/Footer";
+  
 
 export default function AppShellLayout({
   children,
@@ -35,6 +24,7 @@ export default function AppShellLayout({
       <AppShell.Main>
         <HeaderTest mt={"xl"} mb={"xl"} />
         <Container mt="xl" size="xl">{children}</Container>
+        <Footer />
       </AppShell.Main>
     </AppShell>
   );

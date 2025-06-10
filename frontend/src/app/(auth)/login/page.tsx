@@ -6,7 +6,7 @@ export default function LoginPage() {
     <Container size={420} my={40}>
       <Paper p="xl" radius="md">
         <Title order={2} ta="center" mb={20}>
-          <span style={{ color: "#0070f3" }}>Strapi Next</span>
+          <span style={{ color: "#0070f3" }}>Clutch Code</span>
         </Title>
         <LoginForm />
       </Paper>
